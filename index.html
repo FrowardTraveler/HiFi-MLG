@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>研究项目展示 - 视频对比</title>
+    <title>HiFi‑MLG: High‑Fidelity Dashcam Video Synthesis Based on Multi‑Level Gaussians</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 60px 20px;
             position: relative;
             overflow-x: hidden;
         }
-
         body::before {
             content: '';
             position: fixed;
@@ -32,42 +30,36 @@
                 radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
-
         .container {
             max-width: 1600px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
-
         header {
             text-align: center;
             color: white;
             margin-bottom: 60px;
             animation: fadeInDown 0.8s ease;
         }
-
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
             letter-spacing: 2px;
         }
-
         .subtitle {
             font-size: 1.3rem;
             opacity: 0.95;
             font-weight: 300;
             letter-spacing: 1px;
         }
-
         .video-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             align-items: start;
         }
-
         .video-card {
             background: white;
             border-radius: 20px;
@@ -80,11 +72,9 @@
             display: flex;
             flex-direction: column;
         }
-
         .video-card:nth-child(1) { animation-delay: 0.1s; }
         .video-card:nth-child(2) { animation-delay: 0.2s; }
         .video-card:nth-child(3) { animation-delay: 0.3s; }
-
         .video-card::before {
             content: '';
             position: absolute;
@@ -94,12 +84,10 @@
             height: 4px;
             background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
         }
-
         .video-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 25px 60px rgba(0,0,0,0.3);
         }
-
         .video-header {
             padding: 25px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -107,7 +95,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .video-header::after {
             content: '';
             position: absolute;
@@ -118,14 +105,12 @@
             background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
             animation: pulse 4s ease-in-out infinite;
         }
-
         .video-header h2 {
             font-size: 1.5rem;
             margin-bottom: 10px;
             position: relative;
             z-index: 1;
         }
-
         .video-header p {
             font-size: 0.95rem;
             opacity: 0.95;
@@ -133,7 +118,6 @@
             position: relative;
             z-index: 1;
         }
-
         .badge {
             display: inline-block;
             padding: 6px 14px;
@@ -147,7 +131,6 @@
             z-index: 1;
             font-weight: 500;
         }
-
         .video-container {
             position: relative;
             width: 100%;
@@ -155,7 +138,6 @@
             background: #f8f9fa;
             flex: 1;
         }
-
         .video-placeholder {
             position: absolute;
             top: 0;
@@ -170,11 +152,9 @@
             color: #495057;
             transition: all 0.3s ease;
         }
-
         .video-card:hover .video-placeholder {
             background: linear-gradient(135deg, #dee2e6 0%, #ced4da 100%);
         }
-
         .video-placeholder svg {
             width: 70px;
             height: 70px;
@@ -182,26 +162,22 @@
             opacity: 0.4;
             transition: all 0.3s ease;
         }
-
         .video-card:hover .video-placeholder svg {
             opacity: 0.6;
             transform: scale(1.1);
         }
-
         .video-placeholder p {
             font-size: 1rem;
             text-align: center;
             padding: 0 15px;
             font-weight: 500;
         }
-
         .video-placeholder .instruction {
             font-size: 0.85rem;
             margin-top: 10px;
             opacity: 0.6;
             font-weight: 400;
         }
-
         video {
             position: absolute;
             top: 0;
@@ -210,7 +186,6 @@
             height: 100%;
             object-fit: cover;
         }
-
         footer {
             text-align: center;
             color: white;
@@ -219,7 +194,6 @@
             font-size: 0.95rem;
             animation: fadeIn 1s ease 0.5s backwards;
         }
-
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -230,7 +204,6 @@
                 transform: translateY(0);
             }
         }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -241,7 +214,6 @@
                 transform: translateY(0);
             }
         }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -250,7 +222,6 @@
                 opacity: 0.9;
             }
         }
-
         @keyframes pulse {
             0%, 100% {
                 transform: scale(1);
@@ -261,7 +232,6 @@
                 opacity: 0.8;
             }
         }
-
         @media (max-width: 1200px) {
             .video-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -274,29 +244,23 @@
                 width: 100%;
             }
         }
-
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
             }
-
             .subtitle {
                 font-size: 1.1rem;
             }
-
             .video-grid {
                 grid-template-columns: 1fr;
                 gap: 25px;
             }
-
             .video-card:nth-child(3) {
                 max-width: 100%;
             }
-
             .video-header h2 {
                 font-size: 1.3rem;
             }
-
             .video-header p {
                 font-size: 0.9rem;
             }
@@ -306,16 +270,15 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎬 实验视频对比展示</h1>
-            <p class="subtitle">不同优化方案的效果对比</p>
+            <h1>🎬 HiFi‑MLG Video Comparison</h1>
+            <p class="subtitle">Qualitative results of different optimization strategies</p>
         </header>
-
         <div class="video-grid">
-            <!-- 视频 1: 基线方法 -->
+            <!-- Video 1: Baseline -->
             <div class="video-card">
                 <div class="video-header">
-                    <h2>基线方法</h2>
-                    <p>完全没有添加本文优化的原始方法</p>
+                    <h2>Baseline</h2>
+                    <p>Original method without our optimizations</p>
                     <span class="badge">Baseline</span>
                 </div>
                 <div class="video-container">
@@ -323,22 +286,20 @@
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M8 5v14l11-7z"/>
                         </svg>
-                        <p>视频占位区域</p>
-                        <p class="instruction">请在此处添加视频文件</p>
+                        <p>Video Placeholder</p>
+                        <p class="instruction">Place your video file here</p>
                     </div>
-                    <!-- 取消注释以下代码并添加视频路径 -->
-                     <video controls>
+                    <video controls>
                         <source src="assets/base.mp4" type="video/mp4">
-                        您的浏览器不支持视频播放。
+                        Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
-
-            <!-- 视频 2: 第一个创新点 -->
+            <!-- Video 2: Innovation 1 -->
             <div class="video-card">
                 <div class="video-header">
-                    <h2>创新点一</h2>
-                    <p>添加第一个创新点后的效果展示</p>
+                    <h2>Innovation 1</h2>
+                    <p>Results with the first proposed module</p>
                     <span class="badge">+ Innovation 1</span>
                 </div>
                 <div class="video-container">
@@ -346,22 +307,20 @@
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M8 5v14l11-7z"/>
                         </svg>
-                        <p>视频占位区域</p>
-                        <p class="instruction">请在此处添加视频文件</p>
+                        <p>Video Placeholder</p>
+                        <p class="instruction">Place your video file here</p>
                     </div>
-                    <!-- 取消注释以下代码并添加视频路径 -->
                     <video controls>
                         <source src="assets/adv_one.mp4" type="video/mp4">
-                        您的浏览器不支持视频播放。
+                        Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
-
-            <!-- 视频 3: 两个创新点 -->
+            <!-- Video 3: Full Method -->
             <div class="video-card">
                 <div class="video-header">
-                    <h2>完整方法</h2>
-                    <p>添加两个创新点后的最终效果</p>
+                    <h2>Full Method</h2>
+                    <p>Final results with both proposed innovations</p>
                     <span class="badge">+ Innovation 1 & 2</span>
                 </div>
                 <div class="video-container">
@@ -369,20 +328,18 @@
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M8 5v14l11-7z"/>
                         </svg>
-                        <p>视频占位区域</p>
-                        <p class="instruction">请在此处添加视频文件</p>
+                        <p>Video Placeholder</p>
+                        <p class="instruction">Place your video file here</p>
                     </div>
-                    <!-- 取消注释以下代码并添加视频路径 -->
                     <video controls>
                         <source src="assets/adv_two.mp4" type="video/mp4">
-                        您的浏览器不支持视频播放。
+                        Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
         </div>
-
         <footer>
-            <p>© 研究项目展示</p>
+            <p>© HiFi‑MLG Project Page</p>
         </footer>
     </div>
 </body>
